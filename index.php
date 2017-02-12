@@ -1,15 +1,17 @@
+<?php
+require "checklogin.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Editor</title>
- <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>Code & Earn</title>
 
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
@@ -19,9 +21,28 @@
     <link href="assets/css/font-awesome.min.css" rel="stylesheet">
     
     <script src="assets/js/modernizr.js"></script>
+    <style type="text/css" media="screen">
 
-  <style type="text/css" media="screen">
-
+#login{
+    position :absolute;
+    margin-top: 100px;
+    left :70%;
+    background-color : WHITE;
+    width :300px;
+visibility : hidden;
+}
+#login1{
+    position :absolute;
+    margin-top: 100px;
+    left :70%;
+    background-color : WHITE;
+    width :300px;
+    visibility : hidden;
+}
+#input
+{
+    width :270px;
+}
 .card {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
@@ -83,64 +104,11 @@
   color: #ffd8a6;
   text-decoration: none;
 }
+</style>
+  </head>
 
+  <body>
 
-#prof{
-    margin-top: 0%;
-        position: absolute;
-        left :75%;
-        top : 18%;
-}
-#prof-pic{
-    margin-top: -65px;
-        width : 125px;
-        height :125px;
-        position: relative;
-        left :30%;
-        top : 80%;
-}
-
-#cont{
-    margin: 0px;
-        height: 500px;
-        position: relative;
-        width: 80%;
-}
-    #editor {
-        margin: 0;
-        position: absolute;
-        top: 0%;
-        bottom: 0%;
-        left: 2.5%;
-        right: 15%;
-        font-size: 10px;
-    }
-#footer {
-        margin: 20px;
-        height: auto;
-        position: relative;
-        width: 70%;
-        left : 50.5%;
-        top: 90%;
-    }
-
-    #que {
-        margin-top: 130px;
-        left : 2.5%;
-        width : 65%;
-        position: relative;
-    }
-    #head {
-        margin-top: 50px;
-        width :50%;
-        height : 30px;
-        left : 52.5%;
-        position: relative;
-         color: #ffab40;
-    }
-  </style>
-</head>
-<body>
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -155,10 +123,12 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">HOME</a></li>
-            <li class="active"><a href="about.html">ABOUT</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-            <li class="dropdown">
+              <li><a href="about.html" class="btn btn-theme">ABOUT</a></li>
+            <li><a href="contact.html" class="btn btn-theme">CONTACT</a></li>
+            <li><a href="#" class="btn btn-theme" onclick="myFunction()" >SIGN IN</a></li>
+            <li><a href="#" class="btn btn-theme"onclick="myFunction1()" >SIGN UP</a></li>
+            
+           <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="blog.html">BLOG</a></li>
@@ -166,125 +136,96 @@
                 <li><a href="portfolio.html">PORTFOLIO</a></li>
                 <li><a href="single-project.html">SINGLE PROJECT</a></li>
               </ul>
-            </li>
+            </li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
 
-    <div id="que">
-		 		<h4>More About Our Agency.</h4>
-		 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
-		 		<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-		 		<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-        
+	<!-- *****************************************************************************************************************
+	 HEADERWRAP
+	 ***************************************************************************************************************** -->
+		
+ <div id="login" class="card">
+    <div class="card-content">
+			<form role="form">
+					  <div id="input" class="form-group">
+					    <label for="InputName1">Email address</label>
+					    <input type="email" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <div id="input" class="form-group">
+					    <label for="InputEmail1">Password</label>
+					    <input type="password" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <button type="submit" class="btn btn-theme">SIGN IN</button>
+					</form>
+	    </div> <!-- /container --> 
+	</div><!-- /headerwrap -->
+
+
+<div id="login1" class="card">
+    <div class="card-content">
+			<form role="form" method="post" action="sign.php" >
+					  <div id="input" class="form-group">
+					    <label for="InputName1">User Name</label>
+					    <input type="txt" name="username" class="form-control" id="exampleInputEmail1">
+					  </div>
+                      <div id="input" class="form-group">
+					    <label for="InputName1">Email address</label>
+					    <input type="email" name="email" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <div id="input" class="form-group">
+					    <label for="InputEmail1">Password</label>
+					    <input type="password" name="password" class="form-control" id="exampleInputEmail1">
+					  </div>
+					  <button type="submit" class="btn btn-theme">SIGN UP</button>
+					</form>
+	    </div> <!-- /container --> 
+	</div><!-- /headerwrap -->
+
+<div onclick="myFunction2()" >
+     <img src="assets/img/code.jpg" class="img-responsive">
 </div>
+   
 
-<div id="prof">
-<div class="container">
-    <div class="row">
-        <!-- Card Projects -->
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-image">
-                    <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
-                    <div id="prof-pic">
-                        <img class="img-responsive" src="https://scontent.fblr1-2.fna.fbcdn.net/v/t1.0-9/14925551_1156200387790243_8762230461286082892_n.jpg?oh=fd58356b2632bdd961314f5e84c027ea&oe=59343C1F">
-                        </div>
-                </div>
-                <div class="card-content">
-                    <span class="card-title">Praveen Raghav</span>
-                    <p>
-                        Cards for display in portfolio style material design by Google.</p>
-                </div>
-                
-                <div class="card-action">
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                    <a href="#" target="new_blank">Link</a>
-                </div>
-            </div>
-        </div>
-     
-    </div>
-</div>
-</div>
+	
 
-
-<div id="head">
-<div>
-<select class="selectpicker" id="demo" onclick="myFunction()">
-  <option  value="ace/theme/dawn">dawn</option>
-  <option  value="ace/theme/github">github</option>
-  <option  value="ace/theme/chrome">chrome</option>
-  <option  value="ace/theme/twilight">twilight</option>
-</select>&nbsp;&nbsp;
-<select id="demo1" onclick="myFunction1()">
-  <option value="ace/mode/c_cpp">C++</option>
-  <option value="ace/mode/java">Java</option>
-  <option value="ace/mode/html">html</option>
-</select>&nbsp;&nbsp;
-<select id="demo2" onclick="myFunction2()">
-  <option value="10px">10px</option>
-  <option value="12px">12px</option>
-  <option value="14px">14px</option>
-  <option value="16px">16px</option>
-</select>
-</div>
-</div>
-
-
-<div id="cont">
-<pre id="editor">#include<.iostream.h>
-    using namespace std;
-    int main()
-    {
-        cout<<"Hello World";
-        return 0;
-    }
-}</pre>
-</div>
-
-<div id="footer">
-    <a href="#" class="btn btn-theme"> Run code </a>&nbsp;&nbsp;
-    <a href="#" class="btn btn-theme">Submit code</a>
-    </div>
-
-<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/dawn");
-    editor.session.setMode("ace/mode/c_cpp");
-var strUser;
-var lang;
-function myFunction() {
-    var x = document.getElementById("demo");
-    strUser = x.options[x.selectedIndex].value;
-
-    var editor = ace.edit("editor");
-    editor.setTheme(strUser);
-    editor.session.setMode("ace/mode/c_cpp");
-    }
-function myFunction1() {
-    var x = document.getElementById("demo1");
-    lang = x.options[x.selectedIndex].value;
-
-    var editor = ace.edit("editor");
-    editor.setTheme(strUser);
-    editor.session.setMode(lang);
-    }
-
-    function myFunction2() {
-        var x = document.getElementById("demo2");
-        var size = x.options[x.selectedIndex].value;
-document.getElementById("editor").style.fontSize = size;
-    }
-
-
-</script>
-
+	<!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+	 <div id="footerwrap">
+	 	<div class="container">
+		 	<div class="row">
+		 		<div class="col-lg-4">
+		 			<h4>About</h4>
+		 			<div class="hline-w"></div>
+		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Social Links</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				<a href="#"><i class="fa fa-dribbble"></i></a>
+		 				<a href="#"><i class="fa fa-facebook"></i></a>
+		 				<a href="#"><i class="fa fa-twitter"></i></a>
+		 				<a href="#"><i class="fa fa-instagram"></i></a>
+		 				<a href="#"><i class="fa fa-tumblr"></i></a>
+		 			</p>
+		 		</div>
+		 		<div class="col-lg-4">
+		 			<h4>Our Bunker</h4>
+		 			<div class="hline-w"></div>
+		 			<p>
+		 				Some Ave, 987,<br/>
+		 				23890, New York,<br/>
+		 				United States.<br/>
+		 			</p>
+		 		</div>
+		 	
+		 	</div><! --/row -->
+	 	</div><! --/container -->
+	 </div><! --/footerwrap -->
+	 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -298,5 +239,99 @@ document.getElementById("editor").style.fontSize = size;
   	<script src="assets/js/custom.js"></script>
 
 
+    <script>
+    function myFunction() {
+    document.getElementById("login").style.visibility = "visible";
+    document.getElementById("login1").style.visibility = "hidden";
+    }
+function myFunction1() {
+    document.getElementById("login").style.visibility = "hidden";
+    document.getElementById("login1").style.visibility = "visible";
+    }
+function myFunction2() {
+    document.getElementById("login").style.visibility = "hidden";
+    document.getElementById("login1").style.visibility = "hidden";
+    }
+// Portfolio
+(function($) {
+	"use strict";
+	var $container = $('.portfolio'),
+		$items = $container.find('.portfolio-item'),
+		portfolioLayout = 'fitRows';
+		
+		if( $container.hasClass('portfolio-centered') ) {
+			portfolioLayout = 'masonry';
+		}
+				
+		$container.isotope({
+			filter: '*',
+			animationEngine: 'best-available',
+			layoutMode: portfolioLayout,
+			animationOptions: {
+			duration: 750,
+			easing: 'linear',
+			queue: false
+		},
+		masonry: {
+		}
+		}, refreshWaypoints());
+		
+		function refreshWaypoints() {
+			setTimeout(function() {
+			}, 1000);   
+		}
+				
+		$('nav.portfolio-filter ul a').on('click', function() {
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector }, refreshWaypoints());
+				$('nav.portfolio-filter ul a').removeClass('active');
+				$(this).addClass('active');
+				return false;
+		});
+		
+		function getColumnNumber() { 
+			var winWidth = $(window).width(), 
+			columnNumber = 1;
+		
+			if (winWidth > 1200) {
+				columnNumber = 5;
+			} else if (winWidth > 950) {
+				columnNumber = 4;
+			} else if (winWidth > 600) {
+				columnNumber = 3;
+			} else if (winWidth > 400) {
+				columnNumber = 2;
+			} else if (winWidth > 250) {
+				columnNumber = 1;
+			}
+				return columnNumber;
+			}       
+			
+			function setColumns() {
+				var winWidth = $(window).width(), 
+				columnNumber = getColumnNumber(), 
+				itemWidth = Math.floor(winWidth / columnNumber);
+				
+				$container.find('.portfolio-item').each(function() { 
+					$(this).css( { 
+					width : itemWidth + 'px' 
+				});
+			});
+		}
+		
+		function setPortfolio() { 
+			setColumns();
+			$container.isotope('reLayout');
+		}
+			
+		$container.imagesLoaded(function () { 
+			setPortfolio();
+		});
+		
+		$(window).on('resize', function () { 
+		setPortfolio();          
+	});
+})(jQuery);
+</script>
   </body>
 </html>
