@@ -11,8 +11,6 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>SOLID - Bootstrap 3 Theme</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
 
@@ -23,14 +21,90 @@
     <script src="assets/js/modernizr.js"></script>
 
   <style type="text/css" media="screen">
-    body {
-    }
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card {
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  width :300px;
+  background-clip: padding-box;
+}
+.card span.card-title {
+    color: BLACK;
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card .card-image {
+  position: relative;
+  overflow: hidden;
+}
+.card .card-image img {
+  border-radius: 2px 2px 0 0;
+  background-clip: padding-box;
+  position: relative;
+  z-index: -1;
+}
+.card .card-image span.card-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 16px;
+}
+.card .card-content {
+  padding: 16px;
+  border-radius: 0 0 2px 2px;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+.card .card-content p {
+  margin: 0;
+  color: inherit;
+}
+.card .card-content span.card-title {
+  line-height: 48px;
+}
+.card .card-action {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 16px;
+}
+.card .card-action a {
+  color: #ffab40;
+  margin-right: 16px;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+}
+.card .card-action a:hover {
+  color: #ffd8a6;
+  text-decoration: none;
+}
+
+
+#prof{
+    margin-top: 0%;
+        position: absolute;
+        left :75%;
+        top : 18%;
+}
+#prof-pic{
+    margin-top: -65px;
+        width : 125px;
+        height :125px;
+        position: relative;
+        left :30%;
+        top : 80%;
+}
 
 #cont{
-    margin: 10px;
+    margin: 0px;
         height: 500px;
         position: relative;
-        width: 100%;
+        width: 80%;
 }
     #editor {
         margin: 0;
@@ -45,19 +119,24 @@
         margin: 20px;
         height: auto;
         position: relative;
-        width: 90%;
+        width: 70%;
+        left : 50.5%;
         top: 90%;
-        bottom : -1px;
     }
 
     #que {
-        margin: 20px;
+        margin-top: 130px;
+        left : 2.5%;
+        width : 65%;
         position: relative;
     }
     #head {
-        margin: 10px;
+        margin-top: 50px;
+        width :50%;
+        height : 30px;
+        left : 52.5%;
         position: relative;
-        left: 65%;
+         color: #ffab40;
     }
   </style>
 </head>
@@ -93,13 +172,46 @@
       </div>
     </div>
 
-    <div id="que" class="container">
-        hihihihii
+    <div id="que">
 		 		<h4>More About Our Agency.</h4>
 		 		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 		 		<p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 		 		<p>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+        
+</div>
+
+<div id="prof">
+<div class="container">
+    <div class="row">
+        <!-- Card Projects -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+                    <div id="prof-pic">
+                        <img class="img-responsive" src="https://scontent.fblr1-2.fna.fbcdn.net/v/t1.0-9/14925551_1156200387790243_8762230461286082892_n.jpg?oh=fd58356b2632bdd961314f5e84c027ea&oe=59343C1F">
+                        </div>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Praveen Raghav</span>
+                    <p>
+                        Cards for display in portfolio style material design by Google.</p>
+                </div>
+                
+                <div class="card-action">
+                    <a href="#" target="new_blank">Link</a>
+                    <a href="#" target="new_blank">Link</a>
+                    <a href="#" target="new_blank">Link</a>
+                    <a href="#" target="new_blank">Link</a>
+                    <a href="#" target="new_blank">Link</a>
+                </div>
+            </div>
         </div>
+     
+    </div>
+</div>
+</div>
+
 
 <div id="head">
 <div>
@@ -125,18 +237,20 @@
 
 
 <div id="cont">
-<pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-        alert("Ace Rocks " + items[i]);
+<pre id="editor">#include<.iostream.h>
+    using namespace std;
+    int main()
+    {
+        cout<<"Hello World";
+        return 0;
     }
 }</pre>
 </div>
 
 <div id="footer">
-footer
+    <a href="#" class="btn btn-theme"> Run code </a>&nbsp;&nbsp;
+    <a href="#" class="btn btn-theme">Submit code</a>
     </div>
-
 
 <script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
