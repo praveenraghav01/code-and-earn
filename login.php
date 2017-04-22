@@ -1,11 +1,10 @@
 <?php
-//session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "code-earn";
+$servername = "mysql.hostinger.in";
+$username = "u177424340_root";
+$password = "Raghav@01";
+$database = "u177424340_code";
 //create connection
 $conn = new mysqli($servername,$username,$password,$database);
 if($conn->connect_error)
@@ -22,28 +21,15 @@ $result = $conn->query($sql);
 $result=mysqli_query($conn,$sql);
 if ($result->num_rows==1)
  {
- //sessionverify();
- //set_cookie();
  session_start();
  while($row = $result->fetch_assoc()) 
   {
      $_SESSION["Name"] = $row["username"];
      $_SESSION["email"] = $row['email'];
-     /*$_SESSION["dob"] = $row['dob'];
-     $_SESSION['city'] = $row['city'];
-     $_SESSION['state'] = $row['state'];
-     $_SESSION['id'] = $row['id']; */
 setcookie("user", $username, time()+3600);
 setcookie("pwd", $password, time()+3600);
- }
-/* $sql="UPDATE `loveeconnect` SET `log` = 1 where email='$email'";
-  $result = $conn->query($sql);
-  //$result=mysqli_query($conn,$sql);
-  $sql="UPDATE `loveeconnect` SET `active` = NOW() WHERE email = '$email' ";
-  $result = $conn->query($sql);
-  //$result=mysqli_query($conn,$sql);*/
+}
 echo  "<script>alert(\"login successful\")</script><br>"; 
-//echo "<script>location.replace(\"$_SESSION[destination]\")</script><br>";
 header("Location: home.php");
 break; 
 }
@@ -53,7 +39,8 @@ echo  "<script>alert(\"Email or password doesnt match!!!!\")</script><br>";
 echo "<script>location.replace(\"index.php\")</script><br>";
 }
 }
-
+}
+/*
  function sessionverify() 
 {	
 $_SESSION['val'] = true;
@@ -98,4 +85,5 @@ setcookie("pwd", $password, time()-3600);
 		echo "<script>location.replace(\"index.php\")</script><br>";
 	}
 }
-
+*/
+?>
